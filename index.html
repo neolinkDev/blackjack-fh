@@ -5,12 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlackJack</title>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+    <div class="content container">
 
+        <h1>BlackJack</h1>
+        
+        <div class="botones">
+            
+            <button class="btn btn--danger">Nuevo Juego</button>
+            <button class="btn btn--primary">Pedir Carta</button>
+            <button class="btn btn--primary">Detener</button>
+               
+        </div>
+
+        <div class="altura">
+            
+            <div class="flex">
     
+                <h2>Jugador - <small>0</small></h2>
+    
+                <div class="cards-player" id="cards-player">
+                    <img src="assets/cartas/10S.png" alt="" class="card">
+                   
+                </div>
+    
+            </div>
+
+        </div>
+
+        <div class="altura">
+
+            <div class="flex">
+    
+                <h2>Crupier - <small>0</small></h2>
+    
+                <div class="cards-crupier" id="cards-crupier">
+                    <img src="assets/cartas/7D.png" alt="" class="card">
+                    
+                </div>
+    
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src="js/underscore.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

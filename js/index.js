@@ -1,9 +1,18 @@
-// VARIABLES
+// VARIABLES //
 let deckOfCards = [];
+let playerPoints = 0;
+let crupierPoints = 0;
 const deckTypes = ["C", "H", "D", "S"];
 const specials = ["A", "J", "Q", "K"];
+// Botones del HTML
+const $pedirCarta = document.getElementById("btn-pedirCarta"),
+  $nuevoJuego = document.getElementById("btn-nuevoJuego"),
+  $detener = document.getElementById("btn-detener");
 
-// FUNCIONES
+const $smalls = document.querySelectorAll("small");
+const $cardsPlayer = document.getElementById("cards-player");
+
+// FUNCIONES //
 // Creamos la baraja
 const createDeck = () => {
   // creamos la baraja del 2 al 10
@@ -19,13 +28,9 @@ const createDeck = () => {
       deckOfCards.push(special + type);
     }
   }
-
-  // console.log(deckOfCards);
-  
   // Barajeamos el deck
   deckOfCards = _.shuffle(deckOfCards);
   console.log(deckOfCards);
-
   return deckOfCards;
 };
 
@@ -42,24 +47,38 @@ const askCard = () => {
 
   const card = deckOfCards.shift();
 
-  console.log(deckOfCards);
-  console.log(card);
-
   return card;
 };
 
-// deckOfCards = [];
-// askCard();
-
 // Valor de la carta
 const cardValue = (card) => {
-  
   const value = card.substring(0, card.length - 1);
-
-  return (isNaN(value)) ? 
-            (value === 'A') ? 11 : 10
-            : Number(value);
+  // value * 1
+  return isNaN(value) ? (value === "A" ? 11 : 10) : Number(value);
 };
 
-const value = cardValue(askCard());
-console.log( {value} )
+// EVENTOS //
+
+$pedirCarta.addEventListener("click", () => {
+  const card = askCard();
+
+  playerPoints += cardValue(card);
+
+  $smalls[0].innerText = playerPoints;
+
+  console.log(playerPoints);
+
+  // <img src="assets/cartas/10S.png" alt="" class="card">
+  const $card = document.createElement("img");
+  $card.classList.add("card");
+  $card.src = `assets/cartas/${card}.png`;
+  $cardsPlayer.appendChild($card);
+
+  if (playerPoints > 21) {
+    console.warn("¡Perdiste!");
+    $pedirCarta.disabled = true;
+  } else if (playerPoints === 21) {
+    console.warn("¡Ganaste!");
+    $pedirCarta.disabled = true;
+  }
+});

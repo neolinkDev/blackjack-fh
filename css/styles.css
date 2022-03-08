@@ -69,13 +69,22 @@ h2 {
 }
 
 .btn--primary {
-  background: var(--colorBlackJack);
+  background-color: var(--colorBlackJack);
   color: #016f32;
 }
 
-.btn--danger:hover,
+.btn--danger:hover {
+  background-color: #d61225;
+}
+
 .btn--primary:hover {
-  color: black;
+  /* color: black; */
+  background-color: #fdb809;
+}
+
+#btn-pedirCarta:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .altura {
@@ -104,5 +113,19 @@ h2 {
   margin-left: -45px;
 }
 
+/*** MEDIA QUERIE ***/
+@media (min-width: 48em /* 768px */) { 
+  .container {
+    width: 50%;
+  }
 
+  .botones {
+    flex-direction: row;
+    justify-content: center;
+  }
 
+  .btn {
+    width: auto;
+    margin-right: .5rem;
+  }
+}

@@ -53,8 +53,8 @@ h2 {
 
 .btn {
   width: 100%;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
   font-weight: bold;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -82,7 +82,8 @@ h2 {
   background-color: #fdb809;
 }
 
-#btn-pedirCarta:disabled {
+#btn-pedirCarta:disabled,
+#btn-detener:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -101,23 +102,21 @@ h2 {
 .cards-crupier {
   display: flex;
   flex-wrap: wrap;
-  margin-top: .5rem;
- 
-  
+  margin-top: 0.5rem;
 }
 
 .card {
   position: relative;
   width: 75px;
-  left: 110px;
+  left: 120px;
   margin-left: -45px;
 }
 
-/*** MEDIA QUERIE ***/
-@media (min-width: 48em /* 768px */) { 
-  .container {
+/*** MEDIA QUERIES ***/
+@media (min-width: 30em /* 480px */) {
+  /* .container {
     width: 50%;
-  }
+  } */
 
   .botones {
     flex-direction: row;
@@ -126,6 +125,90 @@ h2 {
 
   .btn {
     width: auto;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
+  }
+
+  .card {
+    left: 174px;
+  }
+}
+
+@media (min-width: 37.5em /* 600px */) {
+  /* .container {
+    width: 50%;
+  } */
+
+  .botones {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .btn {
+    width: auto;
+    margin-right: 0.5rem;
+  }
+
+  .card {
+    left: 230px;
+  }
+}
+
+@media (min-width: 48em /* 768px */) {
+  /* .container {
+    width: 50%;
+  } */
+
+  .botones {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .btn {
+    width: auto;
+    margin-right: 0.5rem;
+  }
+
+  .card {
+    left: 307px;
+  }
+}
+
+@media (min-width: 64em /* 1024px */) {
+  /* .container {
+    width: 50%;
+  } */
+
+  .botones {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .btn {
+    width: auto;
+    margin-right: 0.5rem;
+  }
+
+  .card {
+    left: 420px;
+  }
+}
+
+@media (min-width: 75em /* 1200px */) {
+  /* .container {
+    width: 50%;
+  } */
+
+  .botones {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .btn {
+    width: auto;
+    margin-right: 0.5rem;
+  }
+
+  .card {
+    left: 550px;
   }
 }

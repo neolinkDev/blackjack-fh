@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlackJack</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/normalize-min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -17,8 +17,8 @@
         <div class="botones">
             
             <button class="btn btn--danger" id="btn-nuevoJuego">Nuevo Juego</button>
-            <button class="btn btn--primary" id="btn-pedirCarta">Pedir Carta</button>
-            <button class="btn btn--primary" id="btn-detener">Detener</button>
+            <button class="btn btn--primary" id="btn-pedirCarta" disabled>Pedir Carta</button>
+            <button class="btn btn--primary" id="btn-detener" disabled>Detener</button>
                
         </div>
 
@@ -28,10 +28,7 @@
     
                 <h2>Jugador - <small>0</small></h2>
     
-                <div class="cards-player" id="cards-player">
-                    <!-- <img src="assets/cartas/10S.png" alt="" class="card"> -->
-                   
-                </div>
+                <div class="cards-player" id="cards-player" data-divCards></div>
     
             </div>
 
@@ -43,10 +40,7 @@
     
                 <h2>Crupier - <small>0</small></h2>
     
-                <div class="cards-crupier" id="cards-crupier">
-                    <img src="assets/cartas/7D.png" alt="" class="card">
-                    
-                </div>
+                <div class="cards-crupier" id="cards-crupier" data-divCards></div>
     
             </div>
             
@@ -54,7 +48,7 @@
 
     </div>
 
-    <script src="js/underscore.js"></script>
+    <script src="js/underscore-min.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

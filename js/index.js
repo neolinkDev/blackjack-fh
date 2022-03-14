@@ -1,4 +1,4 @@
-(() => {
+const module = (() => {
   "use strict";
 
   // VARIABLES //
@@ -7,13 +7,13 @@
   // arreglo donde se guardaran los puntos
   let playersPoints = [];
 
-  const deckTypes = ["C", "H", "D", "S"],
-    specials = ["A", "J", "Q", "K"];
-
   // Botones del HTML
   const $pedirCarta = document.getElementById("btn-pedirCarta"),
     $nuevoJuego = document.getElementById("btn-nuevoJuego"),
     $detener = document.getElementById("btn-detener");
+
+  const deckTypes = ["C", "H", "D", "S"],
+    specials = ["A", "J", "Q", "K"];
 
   const $smalls = document.querySelectorAll("small"),
     $divCardsPlayers = document.querySelectorAll("[data-divCards]");
@@ -134,41 +134,41 @@
   };
 
   // EVENTOS //
+  document.addEventListener("click", (e) => {
+    // Código
+    if (e.target === $pedirCarta) {
+      const card = askCard();
 
-  $pedirCarta.addEventListener("click", () => {
-    const card = askCard();
+      const playerPoints = accumulatePoints(card, 0);
 
-    const playerPoints = accumulatePoints(card, 0);
+      createCard(card, 0);
 
-    createCard(card, 0);
+      if (playerPoints > 21) {
+        $pedirCarta.disabled = true;
+        $detener.disabled = true;
+        crupier(playerPoints);
+        // alert('¡PERDISTE!')
+      } else if (playerPoints === 21) {
+        $pedirCarta.disabled = true;
+        $detener.disabled = true;
+        crupier(playerPoints);
+        // alert('¡GANASTE!')
+      }
+    }
 
-    // const $card = document.createElement("img");
-    // $card.classList.add("card");
-    // $card.src = `assets/cartas/${card}.png`;
-    // $cardsPlayer.appendChild($card);
-
-    if (playerPoints > 21) {
+    if (e.target === $detener) {
       $pedirCarta.disabled = true;
       $detener.disabled = true;
-      crupier(playerPoints);
-      // alert('¡PERDISTE!')
-    } else if (playerPoints === 21) {
-      $pedirCarta.disabled = true;
-      $detener.disabled = true;
-      crupier(playerPoints);
-      // alert('¡GANASTE!')
+      crupier(playersPoints[0]);
+    }
+
+    // llama la función startGame al hacer click en el botón `nuevo juego`
+    if (e.target === $nuevoJuego) {
+      startGame();
     }
   });
 
-  // logica botón detener
-  $detener.addEventListener("click", () => {
-    $pedirCarta.disabled = true;
-    $detener.disabled = true;
-    crupier(playersPoints[0]);
-  });
-
-  // limpiando todo el index
-  $nuevoJuego.addEventListener("click", () => {
-    startGame();
-  });
+  // return {
+  //   iniciarJuego: startGame
+  // };
 })();

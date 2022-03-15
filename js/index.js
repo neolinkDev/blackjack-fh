@@ -135,7 +135,7 @@ const module = (() => {
 
   // EVENTOS //
   document.addEventListener("click", (e) => {
-    // Código
+    // Código botón pedir carta
     if (e.target === $pedirCarta) {
       const card = askCard();
 
@@ -156,6 +156,7 @@ const module = (() => {
       }
     }
 
+    // Codigo botón detener
     if (e.target === $detener) {
       $pedirCarta.disabled = true;
       $detener.disabled = true;
